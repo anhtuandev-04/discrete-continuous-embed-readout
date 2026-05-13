@@ -1,0 +1,73 @@
+[project]
+name = "discrete-continuous-embed-readout"
+version = "0.2.7"
+description = "Discrete Continuous Embed Readout"
+authors = [
+    { name = "Phil Wang", email = "lucidrains@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">= 3.9"
+license = { file = "LICENSE" }
+keywords = [
+    'artificial intelligence',
+    'deep learning',
+    'action spaces'
+]
+
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3.9',
+]
+
+dependencies = [
+    "beartype",
+    "einops>=0.8.1",
+    "torch>=2.8",
+]
+
+[project.urls]
+Homepage = "https://codeberg.org/lucidrains/discrete-continuous-embed-readout"
+Repository = "https://codeberg.org/lucidrains/discrete-continuous-embed-readout"
+
+[project.optional-dependencies]
+examples = []
+test = [
+    "pytest",
+    "x-transformers"
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["discrete_continuous_embed_readout"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "discrete_continuous_embed_readout",
+    "pyproject.toml",
+    "README.md",
+    "LICENSE"
+]
+
+exclude = [
+    ".*/",
+    "tests/.*",
+    "test_*.py"
+]
